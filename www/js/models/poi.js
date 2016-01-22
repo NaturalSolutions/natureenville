@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
     poiTypes = require('./typepoi'),
     generalTypes = require('./generaltypepoi'),
+    $ = require('jquery'),
     Period = require('./period');
 
 Backbone.LocalStorage = require("backbone.localstorage");
@@ -107,7 +108,7 @@ var Poi = Backbone.Model.extend({
         // if (!attrs.postal_code) {
         //   return "L'information code postal est manquante";
         // }
-        if(!jQuery.isEmptyObject(errors))return errors;
+        if(!$.isEmptyObject(errors))return errors;
     }
 });
 

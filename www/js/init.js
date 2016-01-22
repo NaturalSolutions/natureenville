@@ -1,6 +1,6 @@
 'use strict';
 var Backbone = require('backbone'),
-    $ = require('jQuery'),
+    $ = require('jquery'),
     currentPos = require('./current-position'),
     moment = require('moment'),
     momentFr = require('moment/locale/fr');
