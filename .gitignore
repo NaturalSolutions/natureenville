@@ -8,4 +8,7 @@ www/templates.js
 .DS_Store
 npm-debug.log
 jscs-report.xml
+tests/test-suite.js
+tests/_SpecRunner.html
+tests/reports
 *~

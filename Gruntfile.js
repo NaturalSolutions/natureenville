@@ -11,6 +11,18 @@ module.exports = function(grunt) {
                 'www/js/**/*.js',
             ]
         },
+        jasmine: {
+            tests: {
+                src: [],
+                options: {
+                    outfile: 'tests/_SpecRunner.html',
+                    specs: 'tests/test-suite.js',
+                    junit: {
+                        path: 'tests/reports/'
+                    }
+                }
+            }
+        },
         watch: {
             options: {
                 livereload: true,
@@ -85,6 +97,15 @@ module.exports = function(grunt) {
                     }
                 }
             },
+            test: {
+                src: ['tests/**/*_spec.js'],
+                dest: 'tests/test-suite.js',
+                options: {
+                    browserifyOptions: {
+                        debug: true // Enable (inline) source map
+                    }
+                }
+            },
             options: {
                 transform: [
                     ['node-underscorify', {templateSettings: {variable: 'data'}}]
@@ -104,13 +125,15 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('build', ['jshint', 'cssmin', 'browserify:dev','copy']);
+    grunt.registerTask('test', ['jshint', 'browserify:test', 'jasmine']);
+    grunt.registerTask('build', ['test', 'cssmin', 'browserify:dev','copy']);
     grunt.registerTask('dev', ['build', 'connect', 'watch']);
     grunt.registerTask('default', ['build']);
 };
