@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-      "jenkins-jscs": "node node_modules/jscs/bin/jscs -r junit  www/js/ > jscs-report.xml || true"
+    "jenkins-jscs": "node node_modules/jscs/bin/jscs -r junit  www/js/ > jscs-report.xml || true"
   },
   "devDependencies": {
     "browserify": "^10.2.4",
