@@ -1,0 +1,11 @@
+{
+    "requireCurlyBraces": null,
+    "preset": "google",
+    "excludeFiles": [
+        "node_modules/**",
+        "platforms/**",
+        "plugins/**",
+        "www/vendor/**",
+        "www/index.js"
+    ]
+}

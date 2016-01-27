@@ -31,6 +31,9 @@
       ]
     }
   },
+  "scripts": {
+      "jenkins-jscs": "node node_modules/jscs/bin/jscs -r junit  www/js/ > jscs-report.xml || true"
+  },
   "devDependencies": {
     "browserify": "^10.2.4",
     "grunt": "^0.4.5",
@@ -41,6 +44,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1",
+    "jscs": "^2.9.0",
     "node-underscorify": "0.0.14"
   },
   "dependencies": {
